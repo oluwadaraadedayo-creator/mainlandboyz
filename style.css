@@ -11,3 +11,92 @@
   object-fit: cover;
   display: block;
 }
+
+.music-card {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(300px, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #111;
+  position: relative;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cover-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.cover-label {
+  font-weight: 700;
+}
+
+.cover-artist {
+  opacity: 0.6;
+}
+
+.track-info {
+  align-self: center;
+}
+
+.track-info .label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.track-info h2 {
+  margin: 0 0 20px;
+  font-size: clamp(40px, 5vw, 80px);
+  line-height: 0.9;
+}
+
+.track-info p {
+  max-width: 400px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 20px;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.button:hover {
+  background: #fff;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .music-card {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .cover {
+    width: 100%;
+  }
+
+  .track-info h2 {
+    font-size: 48px;
+  }
+}
