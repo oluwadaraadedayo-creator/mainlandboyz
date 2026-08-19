@@ -1,203 +1,873 @@
-/* ==========================================
-   MLB MUSIC — FINAL DESKTOP LAYOUT
-========================================== */
+/* =====================================================
+   MLB — MAINLAND BOYZ
+   MAIN COLORS
+===================================================== */
 
-#music .music-card {
-  display: grid !important;
-  grid-template-columns: 50% 1fr !important;
-  grid-template-rows: auto !important;
+* {
+  box-sizing: border-box;
+}
 
-  column-gap: 6vw !important;
-  row-gap: 0 !important;
+html {
+  scroll-behavior: smooth;
+}
 
-  align-items: center !important;
+body {
+  margin: 0;
+  background: #050505;
+  color: #ffff00;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  overflow-x: hidden;
+}
 
-  width: 100% !important;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }
 
 
-/* ==========================================
-   COVER — LEFT SIDE
-========================================== */
+/* =====================================================
+   NOISE
+===================================================== */
 
-#music .music-card > .cover {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
+.noise {
+  position: fixed;
+  inset: -50%;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.045;
 
-  position: relative !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
 
-  width: 100% !important;
-  max-width: none !important;
-
-  aspect-ratio: 1 / 1 !important;
-
-  overflow: hidden !important;
-
-  border: 1px solid #333 !important;
-
-  display: block !important;
-}
-
-#music .music-card > .cover img {
-  width: 100% !important;
-  height: 100% !important;
-
-  display: block !important;
-
-  object-fit: cover !important;
-  object-position: center !important;
+  animation: grain 0.18s steps(2) infinite;
 }
 
 
-/* ==========================================
-   COVER LABEL
-========================================== */
+/* =====================================================
+   HEADER
+===================================================== */
 
-#music .music-card .cover-info {
-  position: absolute !important;
+header {
+  height: 76px;
 
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
 
-  display: flex !important;
-  justify-content: space-between !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  padding: 18px !important;
+  padding: 0 3vw;
 
-  color: #fff !important;
+  border-bottom: 1px solid #242424;
 
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0,0,0,.9)
-  ) !important;
+  background: rgba(5, 5, 5, 0.82);
 
-  font-size: 10px !important;
-  letter-spacing: .12em !important;
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  color: #ffff00;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  letter-spacing: -0.08em;
+}
+
+.logo span {
+  font-size: 8px;
+  vertical-align: top;
+  margin-left: 3px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+nav a,
+.spotify {
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover,
+.spotify:hover {
+  opacity: 0.45;
+}
+
+.spotify {
+  font-size: 11px;
+  letter-spacing: 0.1em;
 }
 
 
-/* ==========================================
-   INFORMATION — RIGHT SIDE
-========================================== */
+/* =====================================================
+   HERO
+===================================================== */
 
-#music .music-card > .track-info {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
+.hero {
+  min-height: 100vh;
 
-  width: 100% !important;
-  max-width: 600px !important;
+  padding: 110px 3vw 30px;
 
-  display: flex !important;
-  flex-direction: column !important;
+  position: relative;
 
-  align-items: flex-start !important;
-  justify-content: center !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  padding: 0 !important;
+  overflow: hidden;
+
+  border-bottom: 1px solid #242424;
+}
+
+.eyebrow {
+  margin: 0;
+
+  color: #999;
+
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #ffff00;
+
+  font-size: clamp(80px, 16vw, 230px);
+  font-weight: 600;
+
+  line-height: 0.72;
+
+  letter-spacing: -0.085em;
+}
+
+.hero h1 em {
+  font-style: normal;
+
+  color: transparent;
+
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  color: #ffff00;
+
+  font-size: 10px;
+  letter-spacing: 0.15em;
 }
 
 
-/* LABEL */
+/* =====================================================
+   ALIEN ORB
+===================================================== */
 
-#music .track-info .label {
-  display: block !important;
+.orb {
+  position: absolute;
 
-  margin: 0 0 22px !important;
+  width: min(55vw, 650px);
+  height: min(55vw, 650px);
 
-  color: #999 !important;
+  right: 10%;
+  top: 16%;
 
-  font-size: 10px !important;
-  letter-spacing: .16em !important;
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  opacity: 0.72;
+}
+
+.orb-core {
+  width: 39%;
+  height: 39%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #ffff00 0,
+      #777 14%,
+      #111 48%,
+      #000 70%
+    );
+
+  box-shadow:
+    0 0 100px 30px rgba(255, 255, 0, 0.08);
+}
+
+.orb-ring {
+  position: absolute;
+
+  border: 1px solid #ffff00;
+
+  border-radius: 50%;
+}
+
+.r1 {
+  inset: 12% 0;
+
+  transform:
+    rotate(24deg)
+    skewX(-14deg);
+}
+
+.r2 {
+  inset: 0 15%;
+
+  transform:
+    rotate(-48deg)
+    skewY(12deg);
+}
+
+.orb span {
+  position: absolute;
+
+  color: #ffff00;
+
+  font-size: 13px;
+  letter-spacing: 0.25em;
 }
 
 
-/* TITLE */
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
 
-#music .track-info h2 {
-  margin: 0 0 25px !important;
+.section {
+  padding: 100px 3vw;
 
-  color: #fff !important;
+  border-bottom: 1px solid #242424;
+}
 
-  font-size: clamp(48px, 6vw, 90px) !important;
+.section-head {
+  display: flex;
+  justify-content: space-between;
 
-  line-height: .86 !important;
+  margin-bottom: 50px;
 
-  letter-spacing: -.075em !important;
+  color: #999;
+
+  font-size: 10px;
+  letter-spacing: 0.15em;
 }
 
 
-/* DESCRIPTION */
+/* =====================================================
+   MUSIC
+===================================================== */
 
-#music .track-info p {
-  margin: 0 !important;
+.music-card {
+  width: 100%;
 
-  max-width: 420px !important;
+  display: grid;
 
-  color: #999 !important;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
 
-  font-size: 14px !important;
+  align-items: center;
 
-  line-height: 1.6 !important;
+  gap: 6vw;
 }
 
 
-/* SPOTIFY */
+/* COVER */
 
-#music .track-info .button {
-  display: inline-block !important;
+.cover {
+  position: relative;
 
-  margin-top: 30px !important;
+  width: 100%;
+  max-width: 650px;
 
-  padding: 15px 20px !important;
+  aspect-ratio: 1 / 1;
 
-  color: #fff !important;
+  overflow: hidden;
 
-  border: 1px solid #555 !important;
+  border: 1px solid #333;
 
-  font-size: 10px !important;
-
-  letter-spacing: .1em !important;
-
-  background: transparent !important;
+  background: #111;
 }
 
-#music .track-info .button:hover {
-  background: #FFFF00 !important;
+.cover img {
+  width: 100%;
+  height: 100%;
 
-  color: #050505 !important;
+  display: block;
 
-  border-color: #FFFF00 !important;
+  object-fit: cover;
 }
 
 
-/* ==========================================
+/* COVER INFO */
+
+.cover-info {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 18px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 0, 0, 0.9)
+    );
+
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+
+/* TRACK INFO */
+
+.track-info {
+  width: 100%;
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.track-info .label {
+  margin-bottom: 22px;
+
+  color: #999;
+
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.track-info h2 {
+  margin: 0 0 25px;
+
+  color: #ffffff;
+
+  font-size: clamp(48px, 6vw, 90px);
+
+  line-height: 0.86;
+
+  letter-spacing: -0.075em;
+
+  font-weight: 600;
+}
+
+.track-info p {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: #999;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* SPOTIFY BUTTON */
+
+.button {
+  display: inline-block;
+
+  margin-top: 30px;
+
+  padding: 15px 20px;
+
+  color: #ffffff;
+
+  border: 1px solid #555;
+
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.button:hover {
+  background: #ffff00;
+
+  color: #050505;
+
+  border-color: #ffff00;
+}
+
+
+/* =====================================================
+   VIDEOS
+===================================================== */
+
+.video-track {
+  display: flex;
+
+  gap: 18px;
+
+  overflow-x: auto;
+
+  padding-bottom: 12px;
+
+  scroll-snap-type: x mandatory;
+
+  scrollbar-width: none;
+
+  cursor: grab;
+}
+
+.video-track::-webkit-scrollbar {
+  display: none;
+}
+
+.video-card {
+  flex: 0 0 min(65vw, 620px);
+
+  scroll-snap-align: center;
+}
+
+
+/* VIDEO THUMB */
+
+.thumb {
+  height: min(38vw, 370px);
+
+  min-height: 230px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 25px;
+
+  overflow: hidden;
+
+  border: 1px solid #333;
+
+  background: #111;
+}
+
+.thumb::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      #555,
+      #090909 58%
+    );
+
+  opacity: 0.7;
+}
+
+.thumb::after {
+  content: "◉";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: #ffff00;
+
+  font-size: 200px;
+
+  opacity: 0.13;
+}
+
+.t2::before {
+  background:
+    linear-gradient(
+      135deg,
+      #333,
+      #050505 55%,
+      #777
+    );
+}
+
+.t3::before {
+  background:
+    radial-gradient(
+      circle,
+      #8a8a8a,
+      #171717 45%,
+      #020202
+    );
+}
+
+.t4::before {
+  background:
+    linear-gradient(
+      40deg,
+      #777,
+      #111 35%,
+      #444 70%,
+      #050505
+    );
+}
+
+.thumb span,
+.thumb b {
+  position: relative;
+
+  z-index: 1;
+}
+
+.thumb span {
+  position: absolute;
+
+  top: 18px;
+  left: 20px;
+
+  color: #ffff00;
+
+  font-size: 10px;
+}
+
+.thumb b {
+  color: #ffffff;
+
+  font-size: clamp(28px, 4vw, 60px);
+
+  letter-spacing: -0.05em;
+}
+
+.video-meta {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 13px 0;
+
+  color: #999;
+
+  font-size: 9px;
+
+  letter-spacing: 0.13em;
+}
+
+.drag-note {
+  margin-top: 30px;
+
+  color: #777;
+
+  text-align: center;
+
+  font-size: 9px;
+
+  letter-spacing: 0.18em;
+}
+
+.drag-note span {
+  margin-left: 20px;
+
+  color: #ffff00;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.manifesto {
+  padding: 100px 3vw 0;
+
+  overflow: hidden;
+}
+
+.manifesto-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 2fr;
+
+  font-size: 10px;
+
+  letter-spacing: 0.14em;
+}
+
+.manifesto-grid > div p:first-child {
+  margin: 0 0 45px;
+
+  color: #ffff00;
+
+  font-size: clamp(50px, 8vw, 120px);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.07em;
+}
+
+.manifesto-grid strong {
+  color: #ffffff;
+
+  font-weight: 500;
+}
+
+.body {
+  max-width: 520px;
+
+  color: #aaa;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+
+  letter-spacing: 0;
+}
+
+.underline {
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding-bottom: 6px;
+
+  color: #ffff00;
+
+  border-bottom: 1px solid #ffff00;
+
+  font-size: 10px;
+}
+
+
+/* =====================================================
+   TICKER
+===================================================== */
+
+.ticker {
+  display: flex;
+
+  gap: 35px;
+
+  margin: 130px -3vw 0;
+
+  padding: 30px 3vw;
+
+  white-space: nowrap;
+
+  border-top: 1px solid #242424;
+
+  color: #ffff00;
+
+  font-size: clamp(40px, 7vw, 100px);
+
+  letter-spacing: -0.06em;
+}
+
+.ticker span:nth-child(even) {
+  color: #555;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+  padding: 40px 3vw 25px;
+}
+
+.footer-logo {
+  margin-bottom: 70px;
+
+  color: #ffff00;
+
+  font-size: clamp(130px, 27vw, 400px);
+
+  font-weight: 700;
+
+  letter-spacing: -0.1em;
+
+  line-height: 0.7;
+}
+
+.footer-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr;
+
+  color: #888;
+
+  font-size: 9px;
+
+  letter-spacing: 0.12em;
+}
+
+.footer-row span:nth-child(2) {
+  text-align: center;
+}
+
+.footer-row span:last-child {
+  text-align: right;
+}
+
+.footer-row a:hover {
+  color: #ffff00;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes grain {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(2%, 1%);
+  }
+
+  50% {
+    transform: translate(-1%, 2%);
+  }
+
+  75% {
+    transform: translate(1%, -2%);
+  }
+
+  100% {
+    transform: translate(-2%, -1%);
+  }
+
+}
+
+
+/* =====================================================
    MOBILE
-========================================== */
+===================================================== */
 
 @media (max-width: 700px) {
 
-  #music .music-card {
-    display: flex !important;
+  header {
+    height: 62px;
 
-    flex-direction: column !important;
-
-    align-items: stretch !important;
-
-    gap: 40px !important;
+    padding: 0 5vw;
   }
 
-  #music .music-card > .cover {
-    width: 100% !important;
-
-    max-width: none !important;
+  nav {
+    display: none;
   }
 
-  #music .music-card > .track-info {
-    width: 100% !important;
+  .hero {
+    padding: 90px 5vw 25px;
+  }
 
-    max-width: none !important;
+  .orb {
+    width: 90vw;
+    height: 90vw;
+
+    right: -20%;
+    top: 25%;
+  }
+
+  .hero h1 {
+    font-size: 21vw;
+  }
+
+  .section {
+    padding: 75px 5vw;
+  }
+
+  .music-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 40px;
+  }
+
+  .cover {
+    width: 100%;
+
+    max-width: none;
+  }
+
+  .track-info {
+    width: 100%;
+
+    max-width: none;
+  }
+
+  .track-info h2 {
+    font-size: 48px;
+  }
+
+  .video-card {
+    flex-basis: 82vw;
+  }
+
+  .thumb {
+    height: 55vw;
+  }
+
+  .manifesto {
+    padding: 75px 5vw 0;
+  }
+
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .footer-row {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .footer-row span {
+    text-align: left !important;
+  }
+
+  .ticker {
+    margin-top: 90px;
+  }
+
+  .footer-logo {
+    font-size: 38vw;
   }
 
 }
