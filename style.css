@@ -2,45 +2,53 @@
    MLB MUSIC SECTION
 ======================================== */
 
-.music-card {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-  align-items: center !important;
-  gap: 7vw !important;
-  width: 100% !important;
+#music .music-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 6vw;
+
+  width: 100%;
 }
+
 
 /* ========================================
    ALBUM COVER — LEFT
 ======================================== */
 
-.music-card .cover {
+#music .cover {
   position: relative;
+
   width: 100%;
   max-width: 650px;
+
   aspect-ratio: 1 / 1;
 
   overflow: hidden;
 
   border: 1px solid #333;
-  background: #111;
 
-  display: block;
+  background: #111;
 }
 
-.music-card .cover img {
+#music .cover img {
+  display: block;
+
   width: 100%;
   height: 100%;
 
   object-fit: cover;
   object-position: center;
-
-  display: block;
 }
 
-/* Cover information */
 
-.music-card .cover-info {
+/* ========================================
+   COVER INFORMATION
+======================================== */
+
+#music .cover-info {
   position: absolute;
 
   left: 0;
@@ -48,6 +56,7 @@
   bottom: 0;
 
   display: flex;
+
   justify-content: space-between;
 
   padding: 18px;
@@ -61,25 +70,29 @@
   );
 
   font-size: 10px;
+
   letter-spacing: 0.12em;
 }
 
+
 /* ========================================
-   MUSIC INFORMATION — RIGHT
+   TRACK INFORMATION — RIGHT
 ======================================== */
 
-.music-card .track-info {
+#music .track-info {
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: flex-start;
+
   justify-content: center;
 }
 
-.music-card .track-info .label {
+#music .track-info .label {
   display: block;
 
   margin: 0 0 22px;
@@ -87,21 +100,25 @@
   color: #999;
 
   font-size: 10px;
+
   letter-spacing: 0.16em;
 }
 
-.music-card .track-info h2 {
+#music .track-info h2 {
   margin: 0 0 25px;
 
   color: #fff;
 
-  font-size: clamp(48px, 6vw, 92px);
+  font-size: clamp(48px, 6vw, 90px);
+
   line-height: 0.86;
+
   letter-spacing: -0.075em;
+
   font-weight: 600;
 }
 
-.music-card .track-info p {
+#music .track-info p {
   max-width: 420px;
 
   margin: 0;
@@ -109,24 +126,30 @@
   color: #999;
 
   font-size: 14px;
+
   line-height: 1.6;
 }
+
 
 /* ========================================
    SPOTIFY BUTTON
 ======================================== */
 
-.music-card .button {
+#music .track-info .button {
   display: inline-block;
 
   margin-top: 30px;
+
   padding: 15px 20px;
 
   color: #fff;
 
+  background: transparent;
+
   border: 1px solid #555;
 
   font-size: 10px;
+
   letter-spacing: 0.1em;
 
   transition:
@@ -135,255 +158,22 @@
     border-color 0.2s ease;
 }
 
-.music-card .button:hover {
+#music .track-info .button:hover {
   background: #FFFF00;
+
   color: #050505;
+
   border-color: #FFFF00;
 }
 
 
 /* ========================================
-   MOBILE
+   VIDEO SECTION
 ======================================== */
 
-@media (max-width: 700px) {
-
-  .music-card {
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    align-items: stretch !important;
-
-    gap: 40px !important;
-  }
-
-  .music-card .cover {
-    width: 100%;
-    max-width: none;
-  }
-
-  .music-card .track-info {
-    width: 100%;
-    max-width: none;
-  }
-
-  .music-card .track-info h2 {
-    font-size: 48px;
-  }
-
-}
-
-/* ==========================================
-   MLB MUSIC — FINAL DESKTOP LAYOUT
-========================================== */
-
-#music .music-card {
-  display: grid !important;
-  grid-template-columns: 50% 1fr !important;
-  grid-template-rows: auto !important;
-
-  column-gap: 6vw !important;
-  row-gap: 0 !important;
-
-  align-items: center !important;
-
-  width: 100% !important;
-}
-
-
-/* ==========================================
-   COVER — LEFT SIDE
-========================================== */
-
-#music .music-card > .cover {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-
-  position: relative !important;
-
-  width: 100% !important;
-  max-width: none !important;
-
-  aspect-ratio: 1 / 1 !important;
-
-  overflow: hidden !important;
-
-  border: 1px solid #333 !important;
-
-  display: block !important;
-}
-
-#music .music-card > .cover img {
-  width: 100% !important;
-  height: 100% !important;
-
-  display: block !important;
-
-  object-fit: cover !important;
-  object-position: center !important;
-}
-
-
-/* ==========================================
-   COVER LABEL
-========================================== */
-
-#music .music-card .cover-info {
-  position: absolute !important;
-
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-
-  display: flex !important;
-  justify-content: space-between !important;
-
-  padding: 18px !important;
-
-  color: #fff !important;
-
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0,0,0,.9)
-  ) !important;
-
-  font-size: 10px !important;
-  letter-spacing: .12em !important;
-}
-
-
-/* ==========================================
-   INFORMATION — RIGHT SIDE
-========================================== */
-
-#music .music-card > .track-info {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-
-  width: 100% !important;
-  max-width: 600px !important;
-
-  display: flex !important;
-  flex-direction: column !important;
-
-  align-items: flex-start !important;
-  justify-content: center !important;
-
-  padding: 0 !important;
-}
-
-
-/* LABEL */
-
-#music .track-info .label {
-  display: block !important;
-
-  margin: 0 0 22px !important;
-
-  color: #999 !important;
-
-  font-size: 10px !important;
-  letter-spacing: .16em !important;
-}
-
-
-/* TITLE */
-
-#music .track-info h2 {
-  margin: 0 0 25px !important;
-
-  color: #fff !important;
-
-  font-size: clamp(48px, 6vw, 90px) !important;
-
-  line-height: .86 !important;
-
-  letter-spacing: -.075em !important;
-}
-
-
-/* DESCRIPTION */
-
-#music .track-info p {
-  margin: 0 !important;
-
-  max-width: 420px !important;
-
-  color: #999 !important;
-
-  font-size: 14px !important;
-
-  line-height: 1.6 !important;
-}
-
-
-/* SPOTIFY */
-
-#music .track-info .button {
-  display: inline-block !important;
-
-  margin-top: 30px !important;
-
-  padding: 15px 20px !important;
-
-  color: #fff !important;
-
-  border: 1px solid #555 !important;
-
-  font-size: 10px !important;
-
-  letter-spacing: .1em !important;
-
-  background: transparent !important;
-}
-
-#music .track-info .button:hover {
-  background: #FFFF00 !important;
-
-  color: #050505 !important;
-
-  border-color: #FFFF00 !important;
-}
-
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 700px) {
-
-  #music .music-card {
-    display: flex !important;
-
-    flex-direction: column !important;
-
-    align-items: stretch !important;
-
-    gap: 40px !important;
-  }
-
-  #music .music-card > .cover {
-    width: 100% !important;
-
-    max-width: none !important;
-  }
-
-  #music .music-card > .track-info {
-    width: 100% !important;
-
-    max-width: none !important;
-  }
-
-}
-
-/* ========================================
-   MLB VIDEO EMBEDS
-======================================== */
-
-.video-track {
+#videos .video-track {
   display: flex;
+
   gap: 18px;
 
   overflow-x: auto;
@@ -397,24 +187,29 @@
   scrollbar-width: none;
 }
 
-.video-track::-webkit-scrollbar {
+#videos .video-track::-webkit-scrollbar {
   display: none;
 }
 
-.video-card {
+#videos .video-card {
   flex: 0 0 min(65vw, 620px);
 
   scroll-snap-align: center;
+
+  text-decoration: none;
+
+  color: inherit;
 }
 
 
-/* VIDEO */
+/* VIDEO EMBED */
 
-.video-embed {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-
+#videos .video-embed {
   position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
 
   overflow: hidden;
 
@@ -423,7 +218,7 @@
   border: 1px solid #333;
 }
 
-.video-embed iframe {
+#videos .video-embed iframe {
   position: absolute;
 
   inset: 0;
@@ -435,28 +230,56 @@
 }
 
 
-/* VIDEO INFORMATION */
+/* VIDEO META */
 
-.video-meta {
+#videos .video-meta {
   display: flex;
 
   justify-content: space-between;
 
   padding: 13px 0;
 
+  color: #999;
+
   font-size: 9px;
 
-  letter-spacing: .13em;
-
-  color: #999;
+  letter-spacing: 0.13em;
 }
 
 
-/* MOBILE */
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 700px) {
 
-  .video-card {
+  #music .music-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 40px;
+  }
+
+  #music .cover {
+    width: 100%;
+
+    max-width: none;
+  }
+
+  #music .track-info {
+    width: 100%;
+
+    max-width: none;
+  }
+
+  #music .track-info h2 {
+    font-size: 48px;
+  }
+
+  #videos .video-card {
     flex: 0 0 82vw;
   }
 
